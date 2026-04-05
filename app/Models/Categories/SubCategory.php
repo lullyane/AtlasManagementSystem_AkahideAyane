@@ -18,7 +18,8 @@ class SubCategory extends Model
         return $this->beLongsTo(MainCategory::class);
     }
 
+    // リレーションの定義
     public function posts(){
-        // リレーションの定義
+        return $this->beLongsTo(SubCategory::class);
     }
 }
