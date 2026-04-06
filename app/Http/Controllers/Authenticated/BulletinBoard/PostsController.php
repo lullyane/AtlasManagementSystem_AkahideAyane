@@ -49,30 +49,31 @@ class PostsController extends Controller
         return view('authenticated.bulletinboard.post_create', compact('main_categories','sub_categories'));
     }
 
-    public function postCreate(PostFormRequest $request){
-        $request->validate([
-            'post_category_id' => ['required','exists:sub_categories,id'],
-            'post_title' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z]+$/u','max:100'],
-            'post_body' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z]+$/u','max:2000'],
-            ],[
-            'post_category_id.required' => 'カテゴリーは必ず選択してください。',
-            'post_category_id' => '未登録のカテゴリーです。',
+    public function postCreate(Request $request){
+       $request->validate([
+        'post_category_id' => ['required','exists:sub_categories,id'],
+        'post_title' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z]+$/u','max:100'],
+        'post_body' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z\r\n]+$/u','max:2000'],
+        ],[
+        'post_category_id.required' => 'カテゴリーは必ず選択してください。',
+        'post_category_id.exists' => '未登録のカテゴリーです。',
 
-            'post_title.required' => 'タイトルは必ず入力してください。',
-            'post_title.regex' => 'タイトルに数字や記号は使用できません。',
-            'post_title.max' => 'タイトルは100文字以内で入力してください。',
+        'post_title.required' => 'タイトルは必ず入力してください。',
+        'post_title.regex' => 'タイトルに数字や記号は使用できません。',
+        'post_title.max' => 'タイトルは100文字以内で入力してください。',
 
-            'post_body.required' => '投稿内容は必ず入力してください。',
-            'post_body.regex' => '投稿内容に数字や記号は使用できません。',
-            'post_body.max' => '投稿内容は2000文字以内で入力してください。',
+        'post_body.required' => '投稿内容は必ず入力してください。',
+        'post_body.regex' => '投稿内容に数字や記号は使用できません。',
+        'post_body.max' => '投稿内容は2000文字以内で入力してください。',
         ]);
 
-        $user_id = $request->input('post_category_id');
+        $post_category_id = $request->input('post_category_id');
         $post_title = $request->input('post_title');
         $post = $request->input('post_body');
 
         $post = Post::create([
             'user_id' => Auth::id(),
+            'post_category_id' => $request->post_category_id,
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);

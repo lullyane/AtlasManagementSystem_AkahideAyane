@@ -15,11 +15,11 @@ class SubCategory extends Model
 
     // リレーションの定義
     public function mainCategory(){
-        return $this->beLongsTo(MainCategory::class);
+        return $this->belongsTo('App\Models\Categories\MainCategory');
     }
 
     // リレーションの定義
     public function posts(){
-        return $this->beLongsTo(SubCategory::class);
+        return $this->belongsToMany('App\Models\Posts\Post', 'post_sub_categories', 'sub_category_id','post_id')->withPivot('id');
     }
 }
