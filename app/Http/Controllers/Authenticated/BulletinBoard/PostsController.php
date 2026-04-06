@@ -81,10 +81,28 @@ class PostsController extends Controller
     }
 
     public function postEdit(Request $request){
-        Post::where('id', $request->post_id)->update([
+        $request->validate([
+            'post_title' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z]+$/u','max:100'],
+            'post_body' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z\r\n]+$/u','max:2000'],
+            ],[
+            'post_title.required' => 'タイトルは必ず入力してください。',
+            'post_title.regex' => 'タイトルに数字や記号は使用できません。',
+            'post_title.max' => 'タイトルは100文字以内で入力してください。',
+
+            'post_body.required' => '投稿内容は必ず入力してください。',
+            'post_body.regex' => '投稿内容に数字や記号は使用できません。',
+            'post_body.max' => '投稿内容は2000文字以内で入力してください。',
+            ]);
+
+            $post_title = $request->input('post_title');
+            $post = $request->input('post_body');
+
+        $post = Post::where(
+            'id', $request->post_id)->update([
             'post_title' => $request->post_title,
             'post' => $request->post_body,
         ]);
+
         return redirect()->route('post.detail', ['id' => $request->post_id]);
     }
 
