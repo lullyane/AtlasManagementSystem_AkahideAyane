@@ -49,10 +49,10 @@ class RegisteredUserController extends Controller
             ]);
 
         $request->validate([
-            'over_name' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z]+$/u','max:10'],
-            'under_name' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z]+$/u','max:10'],
-            'over_name_kana' => ['required','regex:/\A[ァ-ヶー]+\z/u','max:30'],
-            'under_name_kana' => ['required','regex:/\A[ァ-ヶー]+\z/u','max:30'],
+            'over_name' => ['required','string','max:10'],
+            'under_name' => ['required','string','max:10'],
+            'over_name_kana' => ['required','string','regex:/\A[ァ-ヶー]+\z/u','max:30'],
+            'under_name_kana' => ['required','string','regex:/\A[ァ-ヶー]+\z/u','max:30'],
             'mail_address' => ['required','email','unique:users,mail_address','max:100'],
             'sex' => ['required','in:1,2,3'],
             'birth_day' => ['required','date','after_or_equal:2000-01-01','before_or_equal:today'],
@@ -60,18 +60,20 @@ class RegisteredUserController extends Controller
             'password' => ['required','alpha_num','between:8,30','confirmed']
             ],[
                 'over_name.required' => '名前（姓）は必ず入力してください。',
-                'over_name.regex' => '名前（姓）に数字や記号は使用できません。',
+                'over_name.string' => '名前（姓）には文字を入力してください。',
                 'over_name.max' => '名前（姓）は10文字以内で入力してください。',
 
                 'under_name.required' => '名前（名）は必ず入力してください。',
-                'under_name.regex' => '名前（名）に数字や記号は使用できません。',
+                'under_name.string' => '名前（名）には文字を入力してください。',
                 'under_name.max' => '名前（名）は10文字以内で入力してください。',
 
                 'over_name_kana.required' => 'フリガナ（セイ）は必ず入力してください。',
+                'over_name_kana.string' => 'フリガナ（セイ）には文字を入力してください。',
                 'over_name_kana.regex' => 'フリガナ（セイ）はカタカナで入力してください。',
                 'over_name_kana.max' => 'フリガナ（セイ）は30文字以内で入力してください。',
 
                 'under_name_kana.required' => 'フリガナ（メイ）は必ず入力してください。',
+                'under_name_kana.string' => 'フリガナ（メイ）には文字を入力してください。',
                 'under_name_kana.regex' => 'フリガナ（メイ）はカタカナで入力してください。',
                 'under_name_kana.max' => 'フリガナ（メイ）は30文字以内で入力してください。',
 
