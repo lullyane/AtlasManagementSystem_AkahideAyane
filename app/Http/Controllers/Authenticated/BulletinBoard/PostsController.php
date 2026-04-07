@@ -52,18 +52,18 @@ class PostsController extends Controller
     public function postCreate(Request $request){
        $request->validate([
         'post_category_id' => ['required','exists:sub_categories,id'],
-        'post_title' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z]+$/u','max:100'],
-        'post_body' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z\r\n]+$/u','max:2000'],
+        'post_title' => ['required','string','max:100'],
+        'post_body' => ['required','string','max:2000'],
         ],[
         'post_category_id.required' => 'カテゴリーは必ず選択してください。',
         'post_category_id.exists' => '未登録のカテゴリーです。',
 
         'post_title.required' => 'タイトルは必ず入力してください。',
-        'post_title.regex' => 'タイトルに数字や記号は使用できません。',
+        'post_title.string' => 'タイトルには文字を入力してください。',
         'post_title.max' => 'タイトルは100文字以内で入力してください。',
 
         'post_body.required' => '投稿内容は必ず入力してください。',
-        'post_body.regex' => '投稿内容に数字や記号は使用できません。',
+        'post_body.string' => '文字を入力してください。',
         'post_body.max' => '投稿内容は2000文字以内で入力してください。',
         ]);
 
@@ -82,15 +82,15 @@ class PostsController extends Controller
 
     public function postEdit(Request $request){
         $request->validate([
-            'post_title' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z]+$/u','max:100'],
-            'post_body' => ['required','regex:/^[ぁ-んァ-ヶー一-龠々A-Za-z\r\n]+$/u','max:2000'],
+            'post_title' => ['required','string','max:100'],
+            'post_body' => ['required','string','max:2000'],
             ],[
             'post_title.required' => 'タイトルは必ず入力してください。',
-            'post_title.regex' => 'タイトルに数字や記号は使用できません。',
+            'post_title.string' => 'タイトルには文字を入力してください。',
             'post_title.max' => 'タイトルは100文字以内で入力してください。',
 
             'post_body.required' => '投稿内容は必ず入力してください。',
-            'post_body.regex' => '投稿内容に数字や記号は使用できません。',
+            'post_body.string' => '投稿内容には文字を入力してください。',
             'post_body.max' => '投稿内容は2000文字以内で入力してください。',
             ]);
 
@@ -127,6 +127,16 @@ class PostsController extends Controller
     }
 
     public function commentCreate(Request $request){
+        $request->validate([
+        'comment' => ['required','max:250','string'],
+        ],[
+        'comment.required' => 'コメントは必ず入力してください。',
+        'comment.max' => 'コメントは250文字以内で入力してください。',
+        'comment.string' => 'コメントには文字を入力してください。',
+        ]);
+
+        $comment = $request->input('comment');
+
         PostComment::create([
             'post_id' => $request->post_id,
             'user_id' => Auth::id(),
