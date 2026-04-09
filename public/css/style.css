@@ -109,6 +109,46 @@ li {
 /* 掲示板 */
 .sub_categories {
   display: none;
+  margin: 10px;
+}
+
+.sub_categories.active {
+  display: block;
+  height: 15px;
+  background: #fff;
+}
+
+.chevron {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.chevron span {
+  position: absolute;
+  width: 10px;
+  height: 1px;
+  background-color: #000;
+  transition: .35s ease-in-out;
+}
+
+.chevron span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.chevron.active span:nth-child(1) {
+  transform: rotate(-45deg);
+}
+
+.chevron span:nth-child(2) {
+  left: 7px;
+  transform: rotate(135deg);
+}
+
+.chevron.active span:nth-child(2) {
+  transform: rotate(-135deg);
 }
 
 .post_create_area {
