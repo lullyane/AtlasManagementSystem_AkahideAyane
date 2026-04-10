@@ -45,12 +45,13 @@
                         </div>
                     </div>
                     @foreach($category->subCategories as $sub_category)
-                    <li class="sub_categories" category_id="{{ $category->id }}"><span>{{$sub_category->sub_category }}</span></li>
+                    <li class="sub_categories" category_id="{{ $category->id }}" data-subcategory="{{ $sub_category->sub_category }}"><span>{{$sub_category->sub_category }}</span></li>
                     @endforeach
                 @endforeach
             </ul>
         </div>
     </div>
     <form action="{{ route('post.show') }}" method="get" id="postSearchRequest"></form>
+    <input type="hidden" name="category_word" id="categoryWordInput" form="postSearchRequest">
 </div>
 </x-sidebar>

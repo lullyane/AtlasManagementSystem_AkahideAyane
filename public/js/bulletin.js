@@ -65,7 +65,7 @@ $(function () {
 
 });
 
-// 検索画面のサブカテゴリーが表示するシェブロンマークの動き
+// サブカテゴリーを表示するシェブロンマークの動き
 $(function () {
     $('.chevron').click(function () {
         $(this).toggleClass('active');
@@ -81,5 +81,14 @@ $(function () {
     $('.sub_categories span').click(function () {
         $('.chevron').removeClass('active');
         $('.sub_categories').removeClass('active');
+    });
+});
+
+// サブカテゴリーをクリックしたら対象のサブカテゴリーに属している投稿のみ表示
+document.querySelectorAll('.sub_categories').forEach(item => {
+    item.addEventListener('click', function () {
+        const subCategoryName = this.innerText.trim();
+        document.getElementById('categoryWordInput').value = subCategoryName;
+        document.getElementById('postSearchRequest').submit();
     });
 });
