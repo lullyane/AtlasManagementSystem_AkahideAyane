@@ -37,7 +37,7 @@
             <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
             <ul>
                 @foreach($categories as $category)
-                    <div class="d-flex">
+                    <div class="d-flex main_categories_wrapper">
                         <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>
                         <div class="chevron">
                             <span></span>

@@ -67,12 +67,13 @@ $(function () {
 
 // サブカテゴリーを表示するシェブロンマークの動き
 $(function () {
-    $('.chevron').click(function () {
-        $(this).toggleClass('active');
+    $('.main_categories_wrapper').click(function () {
+        const chevron = $(this).find('.chevron');
+        chevron.toggleClass('active');
         const parent = $(this).closest('.d-flex');
         const categoryId = parent.find('.main_categories').attr('category_id');
         const targetSubs = $('.sub_categories[category_id="' + categoryId + '"]');
-        if ($(this).hasClass('active')) {
+        if (chevron.hasClass('active')) {
             targetSubs.addClass('active');
         } else {
             targetSubs.removeClass('active');
@@ -83,6 +84,7 @@ $(function () {
         $('.sub_categories').removeClass('active');
     });
 });
+
 
 // サブカテゴリーをクリックしたら対象のサブカテゴリーに属している投稿のみ表示
 document.querySelectorAll('.sub_categories').forEach(item => {
