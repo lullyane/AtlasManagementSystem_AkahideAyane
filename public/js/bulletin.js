@@ -85,12 +85,10 @@ $(function () {
     });
 });
 
-
-// サブカテゴリーをクリックしたら対象のサブカテゴリーに属している投稿のみ表示
-document.querySelectorAll('.sub_categories').forEach(item => {
-    item.addEventListener('click', function () {
-        const subCategoryName = this.innerText.trim();
-        document.getElementById('categoryWordInput').value = subCategoryName;
-        document.getElementById('postSearchRequest').submit();
+// form="subCategoryRequest" が正しく機能しないことにより、main_category_id が送信されないため、DOM読読み込み後に対象要素を実際の <form id="subCategoryRequest"> 内へ移動させる
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('subCategoryRequest');
+    document.querySelectorAll('[form="subCategoryRequest"]').forEach(el => {
+        form.appendChild(el);
     });
 });
