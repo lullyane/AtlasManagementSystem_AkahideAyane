@@ -16,15 +16,15 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::create([
-            'over_name' => 'テスト',
-            'under_name' => 'ユーザー',
-            'over_name_kana' => 'テスト',
-            'under_name_kana' => 'ユーザー',
-            'mail_address' => 'test@mail.com',
+            'over_name' => '国語教師',
+            'under_name' => '猫',
+            'over_name_kana' => 'コクゴキョウシ',
+            'under_name_kana' => 'ネコ',
+            'mail_address' => 'cat@mail.com',
             'sex' => 1,
-            'birth_day' => '2000-01-01',
+            'birth_day' => '2001-01-01',
             'role' => 1,
-            'password' => Hash::make('test'),
+            'password' => Hash::make('catcatcat'),
         ]);
     }
 }
