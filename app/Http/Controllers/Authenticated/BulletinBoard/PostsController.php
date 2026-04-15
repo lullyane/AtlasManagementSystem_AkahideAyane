@@ -73,7 +73,7 @@ class PostsController extends Controller
 
         $post_category_id = $request->input('post_category_id');
         $post_title = $request->input('post_title');
-        $post = $request->input('post_body');
+        $post_body = $request->input('post_body');
 
         $post = Post::create([
             'user_id' => Auth::id(),
