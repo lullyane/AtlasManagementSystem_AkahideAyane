@@ -55,12 +55,12 @@ class PostsController extends Controller
 
     public function postCreate(Request $request){
        $request->validate([
-        'post_category_id' => ['required','exists:sub_categories,id'],
+        'sub_category_id' => ['required','exists:sub_categories,id'],
         'post_title' => ['required','string','max:100'],
         'post_body' => ['required','string','max:2000'],
         ],[
-        'post_category_id.required' => 'カテゴリーは必ず選択してください。',
-        'post_category_id.exists' => '未登録のカテゴリーです。',
+        'sub_category_id.required' => 'カテゴリーは必ず選択してください。',
+        'sub_category_id.exists' => '未登録のカテゴリーです。',
 
         'post_title.required' => 'タイトルは必ず入力してください。',
         'post_title.string' => 'タイトルには文字を入力してください。',
@@ -71,16 +71,20 @@ class PostsController extends Controller
         'post_body.max' => '投稿内容は2000文字以内で入力してください。',
         ]);
 
-        $post_category_id = $request->input('post_category_id');
+        $post_category_id = $request->input('sub_category_id');
         $post_title = $request->input('post_title');
         $post_body = $request->input('post_body');
 
         $post = Post::create([
             'user_id' => Auth::id(),
-            'post_category_id' => $request->post_category_id,
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
+
+        $post->subCategories()->sync([
+            $request->sub_category_id
+        ]);
+
         return redirect()->route('post.show');
     }
 

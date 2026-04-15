@@ -70,8 +70,7 @@ $(function () {
     $('.main_categories_wrapper').click(function () {
         const chevron = $(this).find('.chevron');
         chevron.toggleClass('active');
-        const parent = $(this).closest('.d-flex');
-        const categoryId = parent.find('.main_categories').attr('category_id');
+        const categoryId = $(this).find('.main_categories').attr('category_id');
         const targetSubs = $('.sub_categories[category_id="' + categoryId + '"]');
         if (chevron.hasClass('active')) {
             targetSubs.addClass('active');
@@ -79,7 +78,8 @@ $(function () {
             targetSubs.removeClass('active');
         }
     });
-    $('.sub_categories span').click(function () {
+    $('.sub_categories button').click(function (e) {
+        e.stopPropagation();
         $('.chevron').removeClass('active');
         $('.sub_categories').removeClass('active');
     });

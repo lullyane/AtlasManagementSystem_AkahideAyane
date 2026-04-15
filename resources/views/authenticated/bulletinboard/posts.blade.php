@@ -9,7 +9,7 @@
             <div class="post_bottom_area d-flex">
                 <div class="d-flex post_status">
                     <div>
-                        <p>{{ $post->sub_category }}</p>
+                        <p>{{ $post->subCategories->first()->sub_category }}</p>
                     </div>
                     <div class="mr-5">
                         <i class="fa fa-comment"></i><span class="">{{ $post->PostComments()->count() }}</span>
@@ -37,21 +37,30 @@
             <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
             <ul>
                 @foreach($categories as $category)
-                    <div class="d-flex main_categories_wrapper">
-                        <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>
-                        <div class="chevron">
-                            <span></span>
-                            <span></span>
+                    <li class="main_categories_wrapper">
+                        <div class="d-flex">
+                            <span class="main_categories" category_id="{{ $category->id }}">
+                                {{ $category->main_category }}
+                            </span>
+                            <div class="chevron">
+                                <span></span>
+                                <span></span>
+                            </div>
                         </div>
-                    </div>
-                    @foreach($category->subCategories as $sub_category)
-                    <li class="sub_categories" category_id="{{ $category->id }}" data-subcategory="{{ $sub_category->sub_category }}"><span>{{$sub_category->sub_category }}</span></li>
-                    @endforeach
+                        @foreach($category->subCategories as $sub_category)
+                            <ul class="sub_categories_wrapper">
+                                <li class="sub_categories" category_id="{{ $category->id }}">
+                                    <form action="{{ route('post.show') }}" method="get">
+                                        <input type="hidden" name="category_word" value="{{ $sub_category->sub_category }}">
+                                        <button type="submit">{{ $sub_category->sub_category }}</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        @endforeach
+                    </li>
                 @endforeach
             </ul>
         </div>
     </div>
-    <form action="{{ route('post.show') }}" method="get" id="postSearchRequest"></form>
-    <input type="hidden" name="category_word" id="categoryWordInput" form="postSearchRequest">
 </div>
 </x-sidebar>
