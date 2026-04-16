@@ -20,10 +20,23 @@ class PostsController extends Controller
         $categories = MainCategory::get();
         $like = new Like;
         $post_comment = new Post;
-        if(!empty($request->keyword)){
+        if (!empty($request->keyword)) {
+            $keyword = $request->keyword;
+            if (SubCategory::where('sub_category', $keyword)->exists()) {
+                $request->merge(['category_word' => $keyword]);
+                $subCategoryName = $request->category_word;
+                $posts = Post::with('user', 'postComments')
+                ->whereHas('subCategories', function($q) use ($subCategoryName){
+                    $q->where('sub_category', $subCategoryName);
+                    })
+                    ->get();
+                    return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
+            }
             $posts = Post::with('user', 'postComments')
-            ->where('post_title', 'like', '%'.$request->keyword.'%')
-            ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
+            ->where('post_title', 'like', "%$keyword%")
+            ->orWhere('post', 'like', "%$keyword%")
+            ->get();
+            return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
         }else if($request->category_word){
             $subCategoryName = $request->category_word;
             $posts = Post::with('user', 'postComments')
