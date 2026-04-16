@@ -80,6 +80,10 @@ li {
   width: 70%;
 }
 
+.past-date {
+  background-color: #EEE;
+}
+
 /* モーダル */
 .modal {
   display: none;
