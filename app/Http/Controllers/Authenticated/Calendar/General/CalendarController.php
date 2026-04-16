@@ -25,7 +25,15 @@ class CalendarController extends Controller
             $getDate = $request->getData;
             $reserveDays = array_filter(array_combine($getDate, $getPart));
             foreach($reserveDays as $key => $value){
-                $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
+                $reserve_settings = ReserveSettings::firstOrCreate(
+                [
+                    'setting_reserve' => $key,
+                    'setting_part' => $value,
+                ],
+                [
+                    'limit_users' => 20, // 初期値
+                ]
+            );
                 $reserve_settings->decrement('limit_users');
                 $reserve_settings->users()->attach(Auth::id());
             }
