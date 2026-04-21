@@ -24,4 +24,17 @@ $(function () {
         }
     });
 
+    // 予約キャンセルモーダル
+    $(document).on('click', '.open-cancel-modal', function () {
+        const date = $(this).data('date');
+        const part = $(this).data('part');
+
+        $('#cancelDate').text(date);
+        $('#cancelPart').text(part);
+
+        $('#cancel_date_input').val(date);
+        $('#cancel_part_input').val(part);
+
+        $('#cancelModal').modal('show');
+    });
 });
