@@ -40,6 +40,9 @@
         <div class="category_area mt-5 p-5">
             <div class="">
                 <p class="m-0">メインカテゴリー</p>
+                @error('main_category_name')
+                    <li>{{ $message }}</li>
+                @enderror
                 <input type="text" class="w-100" name="main_category_name" form="mainCategoryRequest">
                 <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="mainCategoryRequest">
             </div>
@@ -47,6 +50,12 @@
             <!-- サブカテゴリー追加 -->
             <div class="">
                 <p class="m-0">サブカテゴリー</p>
+                @error('main_category_id')
+                    <li>{{ $message }}</li>
+                @enderror
+                @error('sub_category_name')
+                    <li>{{ $message }}</li>
+                @enderror
                 <select class="w-100" form="subCategoryRequest" name="main_category_id">
                     <option value="" disabled selected>---</option>
                     @foreach($main_categories as $main_category)
