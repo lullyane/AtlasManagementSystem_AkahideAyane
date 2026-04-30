@@ -23,6 +23,11 @@ class CalendarController extends Controller
         try{
             $getPart = $request->getPart;
             $getDate = $request->getData;
+
+                    while (count($getPart) < count($getDate)) {
+            array_unshift($getPart, "");
+        }
+
             $reserveDays = array_filter(array_combine($getDate, $getPart));
             foreach($reserveDays as $key => $value){
                 $reserve_settings = ReserveSettings::firstOrCreate(
