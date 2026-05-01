@@ -49,41 +49,22 @@ class CalendarController extends Controller
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
 
-public function delete(Request $request)
-{
-    DB::beginTransaction();
-    try {
+    public function delete(Request $request)
+    {
         $date = $request->date;
         $part = $request->part;
         $user_id = Auth::id();
 
-        // ① 対象の予約枠を取得
-        $setting = ReserveSettings::where('setting_reserve', $date)
-            ->where('setting_part', $part)
-            ->first();
-
-        // 枠が存在しない場合は何もせず戻る
-        if (!$setting) {
-            DB::rollBack();
-            return redirect()->route('calendar.general.show', ['user_id' => $user_id]);
-        }
-
-        // ② pivot から「このユーザーだけ」削除
-        $setting->users()->detach($user_id);
-
-        // ③ limit_users を 1 つ戻す
-        $setting->increment('limit_users');
-
-        DB::commit();
-
+        DB::transaction(function () use ($date, $part, $user_id) {
+            $setting = ReserveSettings::where('setting_reserve', $date)
+                ->where('setting_part', $part)
+                ->first();
+            if ($setting) {
+                $setting->users()->detach($user_id);
+                $setting->increment('limit_users');
+            }
+        });
         return redirect()->route('calendar.general.show', ['user_id' => $user_id]);
-
-    } catch (\Exception $e) {
-        DB::rollBack();
-        return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
-}
-
-
 
 }
