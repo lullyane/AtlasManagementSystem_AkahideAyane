@@ -10,21 +10,18 @@
         <div class="modal fade" id="cancelModal" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">予約キャンセル</h5>
-                    </div>
                     <div class="modal-body">
-                        <p>以下の予約をキャンセルしますか？</p>
+                        <p>以下の予約をキャンセルしてもよろしいですか</p>
                         <p>予約日：<span id="cancelDate"></span></p>
-                        <p>予約時間：<span id="cancelPart"></span></p>
-                        <form id="deleteCalendar" method="POST" action="/delete/calendar">
+                        <p>時間：リモ<span id="cancelPart"></span>部</p>
+                        <form id="deleteCalendar" method="POST" action="{{ route('deleteParts') }}">
                             @csrf
                             <input type="hidden" name="date" id="cancel_date_input">
                             <input type="hidden" name="part" id="cancel_part_input">
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">閉じる</button>
                         <button type="submit" form="deleteCalendar" class="btn btn-danger">キャンセルする</button>
                     </div>
                 </div>

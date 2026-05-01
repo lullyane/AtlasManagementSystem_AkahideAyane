@@ -47,20 +47,25 @@ class CalendarView{
 
                 $html[] = $day->render();
 
-                if(in_array($day->everyDay(), $day->authReserveDay())){
-                $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
-                    if($reservePart == 1){
-                        $reservePart = "リモ1部";
-                    }else if($reservePart == 2){
-                        $reservePart = "リモ2部";
-                    }else if($reservePart == 3){
-                        $reservePart = "リモ3部";
+                if(in_array($day->everyDay(), $day->authReserveDay())){$reservePartNum = $day->authReserveDate($day->everyDay())->first()->setting_part;
+
+                    $reservePartLabel = '';
+                    if($reservePartNum == 1){
+                        $reservePartLabel = "リモ1部";
+                    }else if($reservePartNum == 2){
+                        $reservePartLabel = "リモ2部";
+                    }else if($reservePartNum == 3){
+                        $reservePartLabel = "リモ3部";
                     }
+
                     if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-                        $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'. $reservePart .'</p>';
+                        $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'. $reservePartLabel .'</p>';
                         $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
                     }else{
-                        $html[] = '<button type="button" class="btn btn-danger p-0 w-75 open-cancel-modal" data-date="'. $day->everyDay() .'" data-part="'. $reservePart .'" style="font-size:12px">' . $reservePart . '</button>';
+                        $html[] = '<button type="button" class="btn btn-danger p-0 w-75 open-cancel-modal"
+                                    data-date="'. $day->everyDay() .'"
+                                    data-part="'. $reservePartNum .'"
+                                    style="font-size:12px">' . $reservePartLabel . '</button>';
                         $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
                     }
                 }else{
