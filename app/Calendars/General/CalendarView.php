@@ -50,11 +50,11 @@ class CalendarView{
                 if(in_array($day->everyDay(), $day->authReserveDay())){
                 $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
                     if($reservePart == 1){
-                        $reservePart = "1部参加";
+                        $reservePart = "リモ1部";
                     }else if($reservePart == 2){
-                        $reservePart = "2部参加";
+                        $reservePart = "リモ2部";
                     }else if($reservePart == 3){
-                        $reservePart = "3部参加";
+                        $reservePart = "リモ3部";
                     }
                     if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
                         $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'. $reservePart .'</p>';
