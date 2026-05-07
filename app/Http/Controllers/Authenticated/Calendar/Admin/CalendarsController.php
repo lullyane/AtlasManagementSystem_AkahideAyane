@@ -45,4 +45,13 @@ class CalendarsController extends Controller
         }
         return redirect()->route('calendar.admin.setting', ['user_id' => Auth::id()]);
     }
+
+    public function setting(Request $request)
+    {
+        $date = $request->query('date');
+        $part = $request->query('part');
+
+        return view('authenticated.calendar.admin.reserve_detail', compact('date', 'part'));
+    }
+
 }
