@@ -51,7 +51,12 @@ class CalendarsController extends Controller
         $date = $request->query('date');
         $part = $request->query('part');
 
-        return view('authenticated.calendar.admin.reserve_detail', compact('date', 'part'));
+        $reserve = ReserveSettings::with('users')
+        ->where('setting_reserve', $date)
+        ->where('setting_part', $part)
+        ->first();
+
+        return view('authenticated.calendar.admin.reserve_detail', compact('date', 'part', 'reserve'));
     }
 
 }
