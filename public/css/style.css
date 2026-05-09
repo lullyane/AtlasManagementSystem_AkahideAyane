@@ -16,6 +16,41 @@ li {
   list-style: none;
 }
 
+.auth_border_radius {
+  border-radius: 2%;
+}
+
+.auth_font_size {
+  font-size: 13px;
+}
+
+/* ログインフォーム */
+.login_form_with {
+  width: 400px;
+}
+
+.atlas_logo_size {
+  width: 150px;
+}
+
+/* 新規登録フォーム */
+.register_form_with {
+  width: 450px;
+}
+
+.name_border {
+  width: 170px;
+}
+
+.birth_day_border {
+  width: 100px;
+  border: none
+}
+
+.sex_margin {
+  margin: 0 70px;
+}
+
 /* サイドバー */
 .sidebar {
   width: 150px;
