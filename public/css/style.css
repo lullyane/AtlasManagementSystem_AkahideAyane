@@ -53,7 +53,7 @@ li {
 
 /* サイドバー */
 .sidebar {
-	width: 210px;
+	min-width: 150px;
 	height: 100vh;
 	background-color: #03AAD2;
 	font-weight: bold;
@@ -63,8 +63,13 @@ li {
 	width: 100%;
 }
 
+.sidebar p {
+	margin: 5px;
+}
+
 .sidebar p a {
 	color: #FFF;
+	font-size: 13px;
 }
 
 .icon_size {
@@ -78,6 +83,14 @@ li {
 }
 
 /* スクール予約関連 */
+.calendar_layout {
+	width: 900px;
+}
+
+.day {
+	margin: 5px;
+}
+
 .day-blank {
 	background: #D3D3D3;
 }

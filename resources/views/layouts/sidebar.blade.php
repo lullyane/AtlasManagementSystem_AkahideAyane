@@ -19,7 +19,7 @@
     </head>
     <body class="all_content">
         <div class="d-flex">
-            <div class="sidebar p-2">
+            <div class="sidebar">
                 <p>
                     <img src="/image/my-page.png" alt="マイページ アイコン" class="icon_size">
                     <a href="{{ route('top.show') }}" class="font_size">マイページ</a>
