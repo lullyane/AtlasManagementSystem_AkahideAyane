@@ -72,8 +72,9 @@ li {
 	font-size: 13px;
 }
 
-.icon_size {
+.icon_layout {
 	width: 20px;
+	filter: invert(100%);
 }
 
 /* トップページ */
