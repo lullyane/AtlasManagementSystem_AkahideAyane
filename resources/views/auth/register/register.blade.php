@@ -1,7 +1,7 @@
 <x-guest-layout>
 <form action="{{ route('registerPost') }}" method="POST">
     <div class="w-100 d-flex m-5 justify-content-center">
-        <div class="vh-75 px-3 bg-white shadow auth_border_radius register_form_with">
+        <div class="vh-75 px-3 bg-white shadow border_radius register_form_with">
             <div class="p-4">
                 @if ($errors->has('over_name'))
                     @foreach ($errors->get('over_name') as $error)

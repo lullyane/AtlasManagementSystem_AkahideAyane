@@ -2,7 +2,7 @@
     <form action="{{ route('loginPost') }}" method="POST">
         <div class="w-100 vh-100 d-flex flex-column align-items-center justify-content-center">
             <img class="atlas_logo_size pb-5" src="/image/atlas-black.png" alt="Atlas ロゴ">
-            <div class="border vh-50 px-3 bg-white shadow auth_border_radius login_form_with">
+            <div class="border vh-50 px-3 bg-white shadow border_radius login_form_with">
                 <div class="w-75 m-auto pt-5">
                     <label class="d-block m-0 auth_font_size">メールアドレス</label>
                     <div class="border-bottom border-primary w-100">
