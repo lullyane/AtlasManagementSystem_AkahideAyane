@@ -29,19 +29,13 @@ class CalendarWeekDay{
         $two_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '2')->first();
         $three_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
 
-        $html[] = '<div class="text-left d-flex flex-column">';
-        if($one_part){
-        $count = $one_part->users->count();
-        $html[] = '<div><a href="/calendar/admin/setting?date='.$ymd.'&part=1" class="mr-3">1部</a><span style="color:#000;">'.$count.'</span></div>';
-        }
-        if($two_part){
-        $count = $two_part->users->count();
-        $html[] = '<div><a href="/calendar/admin/setting?date='.$ymd.'&part=2" class="mr-3">2部</a><span style="color:#000;">'.$count.'</span></div>';
-        }
-        if($three_part){
-        $count = $three_part->users->count();
-        $html[] = '<div><a href="/calendar/admin/setting?date='.$ymd.'&part=3" class="mr-3">3部</a><span style="color:#000;">'.$count.'</span></div>';
-        }
+        $html[] = '<div class="text-center d-flex flex-column">';
+        $count = $one_part ? $one_part->users->count() : 0;
+        $html[] = '<div class="text-center"><a href="/calendar/admin/setting?date='.$ymd.'&part=1" class="mr-3">1部</a><span class="ml-3" style="color:#000;">'.$count.'</span></div>';
+        $count = $two_part ? $two_part->users->count() : 0;
+        $html[] = '<div class="text-center"><a href="/calendar/admin/setting?date='.$ymd.'&part=2" class="mr-3">2部</a><span class="ml-3" style="color:#000;">'.$count.'</span></div>';
+        $count = $three_part ? $three_part->users->count() : 0;
+        $html[] = '<div class="text-center"><a href="/calendar/admin/setting?date='.$ymd.'&part=3" class="mr-3">3部</a><span class="ml-3" style="color:#000;">'.$count.'</span></div>';
         $html[] = '</div>';
 
         return implode("", $html);

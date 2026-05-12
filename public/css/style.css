@@ -11,6 +11,7 @@
 	background: #ECF1F6;
 }
 
+
 ul,
 li {
 	list-style: none;
@@ -54,7 +55,7 @@ li {
 /* サイドバー */
 .sidebar {
 	min-width: 150px;
-	height: 100vh;
+	height: auto;
 	background-color: #03AAD2;
 	font-weight: bold;
 }

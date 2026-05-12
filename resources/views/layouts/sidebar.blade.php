@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     </head>
     <body class="all_content">
-        <div class="d-flex">
+        <div class="d-flex content_wrapper">
             <div class="sidebar">
                 <p>
                     <img src="/image/my-page.png" alt="マイページ アイコン" class="icon_layout">
