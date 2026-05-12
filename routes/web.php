@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth'], function(){
                 [CalendarsController::class, 'updateSettings'])->name('calendar.admin.update');
                 Route::get('calendar/{date}/{part}',
                 [CalendarsController::class, 'reserveDetail'])->where(['date' => '\d{4}-\d{2}-\d{2}','part' => '\d+'])->name('calendar.admin.detail');
+                Route::get('calendar/admin/setting', [CalendarsController::class, 'setting'])->name('calendar.admin.setting');
             });
         });
         Route::namespace('BulletinBoard')->group(function(){
