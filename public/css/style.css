@@ -18,7 +18,7 @@ li {
 }
 
 .border_radius {
-	border-radius: 2%;
+	border-radius: 8px;
 }
 
 .auth_font_size {
@@ -136,6 +136,15 @@ li {
 
 .past-date {
 	background-color: #EEE;
+}
+
+.reserve_table_header {
+	background-color: #03AAD2;
+	color: #FFF;
+}
+
+.reserve_table_body tr:nth-child(even) {
+	background-color: #E5F6FA;
 }
 
 /* モーダル */
