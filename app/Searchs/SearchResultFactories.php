@@ -4,8 +4,6 @@ namespace App\Searchs;
 use App\Models\Users\User;
 
 class SearchResultFactories{
-
-    // 改修課題：選択科目の検索機能
     public function initializeUsers($keyword, $category, $updown, $gender, $role, $subjects){
         if($category == 'name'){
         if(is_null($subjects)){

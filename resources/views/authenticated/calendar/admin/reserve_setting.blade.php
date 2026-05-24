@@ -1,14 +1,14 @@
 <x-sidebar>
-<div class="py-4">
-    <div class="border m-auto py-4 border_radius bg-white shadow calendar_layout">
-        <div class="border-0 mx-4">
-            <p class="text-center">{{ $calendar->getTitle() }}</p>
-            <div class="w-100">
-                {!! $calendar->render() !!}
-            </div>
-            <div class="adjust-table-btn w-100 mt-4 text-right">
+<div>
+    <div class="border-0 my-4 mx-auto py-3 px-5 border_radius bg-white shadow calendar_size">
+        <div>
+            <p class="text-center mt-2 mb-1">{{ $calendar->getTitle() }}</p>
+        </div>
+        <div>
+            {!! $calendar->render() !!}
+        </div>
+        <div class="adjust_table-btn w-100 mt-1 text-right">
             <input type="submit" class="btn btn-primary" value="登録" form="reserveSetting" onclick="return confirm('登録してよろしいですか？')">
-            </div>
         </div>
     </div>
 </div>

@@ -2,32 +2,31 @@
 namespace App\Calendars\General;
 
 class CalendarWeekBlankDay extends CalendarWeekDay{
-  function getClassName(){
-    return "day-blank";
-  }
+    function getClassName(){
+        return "day_blank";
+    }
 
-  /**
-   * @return
-   */
+    /**
+     * @return
+     */
 
-   function render(){
-     return '';
-   }
+    function render(){
+        return '';
+    }
 
-   function selectPart($ymd){
-     return '';
-   }
+    function selectPart($ymd){
+        return '';
+    }
 
-   function getDate(){
-     return '';
-   }
+    function getDate(){
+        return '';
+    }
 
-   function cancelBtn(){
-     return '';
-   }
+    function cancelBtn(){
+        return '';
+    }
 
-   function everyDay(){
-     return '';
-   }
-
+    function everyDay(){
+        return '';
+    }
 }

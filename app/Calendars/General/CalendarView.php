@@ -15,7 +15,7 @@ class CalendarView{
         return $this->carbon->format('Y年n月');
     }
 
-    function render(){
+    public function render(){
         $html = [];
         $html[] = '<div class="calendar text-center">';
         $html[] = '<table class="table border">';
@@ -26,8 +26,8 @@ class CalendarView{
         $html[] = '<th class="border">水</th>';
         $html[] = '<th class="border">木</th>';
         $html[] = '<th class="border">金</th>';
-        $html[] = '<th class="border day-sat">土</th>';
-        $html[] = '<th class="border day-sun">日</th>';
+        $html[] = '<th class="border day_sat">土</th>';
+        $html[] = '<th class="border day_sun">日</th>';
         $html[] = '</tr>';
         $html[] = '</thead>';
         $html[] = '<tbody>';
@@ -40,9 +40,11 @@ class CalendarView{
                 $toDay = $this->carbon->copy()->format("Y-m-d");
 
                 if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-                $html[] = '<td class="calendar-td '.$day->getClassName().' past-date border">';
+                $html[] = '<td class="calendar_td '.$day->getClassName().' past_date border calendar_layout">';
+                $html[] = '<div class="days_container">';
                 }else{
-                $html[] = '<td class="calendar-td '.$day->getClassName().' border">';
+                $html[] = '<td class="calendar_td '.$day->getClassName().' border calendar_layout">';
+                $html[] = '<div class="days_container">';
                 }
 
                 $html[] = $day->render();
@@ -59,24 +61,24 @@ class CalendarView{
                     }
 
                     if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-                        $html[] = '<p class="m-auto p-0 w-75 day_part">'. $reservePartNum .'部参加</p>';
+                        $html[] = '<p class="mb-0 p-0 w-75 day_part mt-2">'. $reservePartNum .'部参加</p>';
                         $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
                     }else{
-                        $html[] = '<button type="button" class="btn btn-danger p-0 w-75 open-cancel-modal"
+                        $html[] = '<button type="button" class="btn btn-danger mt-2 p-0 w-75 open-cancel-modal fs_12"
                                     data-date="'. $day->everyDay() .'"
-                                    data-part="'. $reservePartNum .'"
-                                    style="font-size:12px">' . $reservePartLabel . '</button>';
+                                    data-part="'. $reservePartNum .'">' . $reservePartLabel . '</button>';
                         $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
                     }
                 }else{
                     if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-                        $html[] = '<p class="m-auto p-0 w-75 day_part">受付終了</p>';
+                        $html[] = '<p class="mt-2 mb-0 w-75 day_part">受付終了</p>';
                         $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
                     }else{
                         $html[] = $day->selectPart($day->everyDay());
                     }
                 }
                 $html[] = $day->getDate();
+                $html[] = '</div>';
                 $html[] = '</td>';
             }
             $html[] = '</tr>';

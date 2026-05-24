@@ -1,11 +1,11 @@
 <x-sidebar>
-<div class="py-4">
-    <div class="border m-auto py-4 border_radius bg-white shadow calendar_layout">
-        <div class="border-0 mx-4">
-            <p class="text-center">{{ $calendar->getTitle() }}</p>
-            <div class="w-100">
-                {!! $calendar->render() !!}
-            </div>
+<div>
+    <div class="border-0 my-4 mx-auto py-3 px-5 border_radius bg-white shadow calendar_size">
+        <div>
+            <p class="text-center mt-2 mb-1">{{ $calendar->getTitle() }}</p>
+        </div>
+        <div>
+            {!! $calendar->render() !!}
         </div>
     </div>
 </div>

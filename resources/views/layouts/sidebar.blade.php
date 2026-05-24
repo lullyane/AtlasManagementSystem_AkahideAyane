@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>AtlasBulletinBoard</title>
+        <title>AtlasSNS / 改修課題</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -20,36 +20,38 @@
     <body class="all_content">
         <div class="d-flex content_wrapper">
             <div class="sidebar">
-                <p>
-                    <img src="/image/my-page.png" alt="マイページ アイコン" class="icon_layout">
-                    <a href="{{ route('top.show') }}" class="font_size">マイページ</a>
-                </p>
-                <p>
-                    <img src="/image/logout.png" alt="ログアウト アイコン" class="icon_layout">
-                    <a href="/logout">ログアウト</a>
-                </p>
-                <p>
-                    <img src="/image/school-reservation.png" alt="スクール予約 アイコン" class="icon_layout">
-                    <a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a>
-                </p>
-                <p>
-                    <img src="/image/school-reservation-confirmation.png" alt="スクール予約確認 アイコン" class="icon_layout">
-                    <a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}?role={{ Auth::user() -> role }}">スクール予約確認</a>
-                </p>
-                <p>
-                    <img src="/image/school-quota-registration.png" alt="スクール枠登録 アイコン" class="icon_layout">
-                    <a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}?role={{ Auth::user() -> role }}">スクール枠登録</a>
-                </p>
-                <p>
-                    <img src="/image/bulletin-board.png" alt="掲示板 アイコン" class="icon_layout">
-                    <a href="{{ route('post.show') }}">掲示板</a>
-                </p>
-                <p>
-                    <img src="/image/user-search.png" alt="ユーザー検索 アイコン" class="icon_layout">
-                    <a href="{{ route('user.show') }}">ユーザー検索</a>
-                </p>
+                <div class="sidebar_content">
+                    <div>
+                        <img src="/image/my-page.png" alt="マイページ アイコン" class="icon_layout">
+                        <a href="{{ route('top.show') }}" class="font_size">マイページ</a>
+                    </div>
+                    <div>
+                        <img src="/image/logout.png" alt="ログアウト アイコン" class="icon_layout">
+                        <a href="/logout">ログアウト</a>
+                    </div>
+                    <div>
+                        <img src="/image/school-reservation.png" alt="スクール予約 アイコン" class="icon_layout">
+                        <a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a>
+                    </div>
+                    <div>
+                        <img src="/image/school-reservation-confirmation.png" alt="スクール予約確認 アイコン" class="icon_layout">
+                        <a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}?role={{ Auth::user() -> role }}">スクール予約確認</a>
+                    </div>
+                    <div>
+                        <img src="/image/school-quota-registration.png" alt="スクール枠登録 アイコン" class="icon_layout">
+                        <a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}?role={{ Auth::user() -> role }}">スクール枠登録</a>
+                    </div>
+                    <div>
+                        <img src="/image/bulletin-board.png" alt="掲示板 アイコン" class="icon_layout">
+                        <a href="{{ route('post.show') }}">掲示板</a>
+                    </div>
+                    <div>
+                        <img src="/image/user-search.png" alt="ユーザー検索 アイコン" class="icon_layout">
+                        <a href="{{ route('user.show') }}">ユーザー検索</a>
+                    </div>
+                </div>
             </div>
-            <div class="main-container">
+            <div class="main_container">
                 {{ $slot }}
             </div>
         </div>

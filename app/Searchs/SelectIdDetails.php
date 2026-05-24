@@ -4,8 +4,6 @@ namespace App\Searchs;
 use App\Models\Users\User;
 
 class SelectIdDetails implements DisplayUsers{
-
-    // 改修課題：選択科目の検索機能
     public function resultUsers($keyword, $category, $updown, $gender, $role, $subjects){
         if(is_null($keyword)){
         $keyword = User::get('id')->toArray();

@@ -15,12 +15,12 @@ $(function () {
     const today = new Date();
     const todayBase = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-    document.querySelectorAll('.calendar-td').forEach(td => {
+    document.querySelectorAll('.calendar_td').forEach(td => {
         const hidden = td.querySelector('input[name="getData[]"]');
         if (!hidden) return;
         const cellDate = new Date(hidden.value);
         if (cellDate < todayBase) {
-            td.classList.add('past-date');
+            td.classList.add('past_date');
         }
     });
 

@@ -29,13 +29,13 @@ class CalendarWeekDay{
         $two_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '2')->first();
         $three_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
 
-        $html[] = '<div class="text-center d-flex flex-column">';
+        $html[] = '<div class="text-center d-flex flex-column mt-2">';
         $count = $one_part ? $one_part->users->count() : 0;
-        $html[] = '<div class="text-center"><a href="/calendar/admin/setting?date='.$ymd.'&part=1" class="mr-3">1部</a><span class="ml-3" style="color:#000;">'.$count.'</span></div>';
+        $html[] = '<div class="text-center setting_detail_line mb-1"><a href="/calendar/admin/setting?date='.$ymd.'&part=1" class="mr-3 sidebar_color">1部</a><span class="ml-3 text-dark">'.$count.'</span></div>';
         $count = $two_part ? $two_part->users->count() : 0;
-        $html[] = '<div class="text-center"><a href="/calendar/admin/setting?date='.$ymd.'&part=2" class="mr-3">2部</a><span class="ml-3" style="color:#000;">'.$count.'</span></div>';
+        $html[] = '<div class="text-center setting_detail_line mb-1"><a href="/calendar/admin/setting?date='.$ymd.'&part=2" class="mr-3 sidebar_color">2部</a><span class="ml-3 text-dark">'.$count.'</span></div>';
         $count = $three_part ? $three_part->users->count() : 0;
-        $html[] = '<div class="text-center"><a href="/calendar/admin/setting?date='.$ymd.'&part=3" class="mr-3">3部</a><span class="ml-3" style="color:#000;">'.$count.'</span></div>';
+        $html[] = '<div class="text-center setting_detail_line mb-1"><a href="/calendar/admin/setting?date='.$ymd.'&part=3" class="mr-3 sidebar_color">3部</a><span class="ml-3 text-dark">'.$count.'</span></div>';
         $html[] = '</div>';
 
         return implode("", $html);
@@ -70,13 +70,12 @@ class CalendarWeekDay{
         return $three_part_frame;
     }
 
-    //
     function dayNumberAdjustment(){
         $html = [];
-        $html[] = '<div class="adjust-area">';
-        $html[] = '<p class="d-flex m-0 p-0">1部<input class="w-25" style="height:20px;" name="1" type="text" form="reserveSetting"></p>';
-        $html[] = '<p class="d-flex m-0 p-0">2部<input class="w-25" style="height:20px;" name="2" type="text" form="reserveSetting"></p>';
-        $html[] = '<p class="d-flex m-0 p-0">3部<input class="w-25" style="height:20px;" name="3" type="text" form="reserveSetting"></p>';
+        $html[] = '<div class="adjust_area">';
+        $html[] = '<p class="d-flex m-0 p-0">1部<input class="w-25 h-25" name="1" type="text" form="reserveSetting"></p>';
+        $html[] = '<p class="d-flex m-0 p-0">2部<input class="w-25 h-25" name="2" type="text" form="reserveSetting"></p>';
+        $html[] = '<p class="d-flex m-0 p-0">3部<input class="w-25 h-25" name="3" type="text" form="reserveSetting"></p>';
         $html[] = '</div>';
         return implode('', $html);
     }

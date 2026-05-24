@@ -4,8 +4,6 @@ namespace App\Searchs;
 use App\Models\Users\User;
 
 class SelectNameDetails implements DisplayUsers{
-
-    // 改修課題：選択科目の検索機能
     public function resultUsers($keyword, $category, $updown, $gender, $role, $subjects){
         if(is_null($gender)){
         $gender = ['1', '2', '3'];
@@ -32,7 +30,6 @@ class SelectNameDetails implements DisplayUsers{
         $q->whereIn('subjects.id', $subjects);
         })
         ->orderBy('over_name_kana', $updown)->get();
-        return $users;
+    return $users;
     }
-
 }

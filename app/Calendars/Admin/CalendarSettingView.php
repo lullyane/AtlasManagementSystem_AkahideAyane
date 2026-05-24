@@ -17,7 +17,7 @@ class CalendarSettingView{
     public function render(){
         $html = [];
         $html[] = '<div class="calendar text-center">';
-        $html[] = '<table class="table m-auto border">';
+        $html[] = '<table class="table border">';
         $html[] = '<thead>';
         $html[] = '<tr>';
         $html[] = '<th class="border">月</th>';
@@ -25,8 +25,8 @@ class CalendarSettingView{
         $html[] = '<th class="border">水</th>';
         $html[] = '<th class="border">木</th>';
         $html[] = '<th class="border">金</th>';
-        $html[] = '<th class="border day-sat">土</th>';
-        $html[] = '<th class="border day-sun">日</th>';
+        $html[] = '<th class="border day_sat">土</th>';
+        $html[] = '<th class="border day_sun">日</th>';
         $html[] = '</tr>';
         $html[] = '</thead>';
         $html[] = '<tbody>';
@@ -39,21 +39,23 @@ class CalendarSettingView{
                 $startDay = $this->carbon->format("Y-m-01");
                 $toDay = $this->carbon->format("Y-m-d");
             if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-                $html[] = '<td class="calendar-td '.$day->getClassName().' past-day border">';
+                $html[] = '<td class="calendar_td '.$day->getClassName().' past_day border calendar_layout">';
+                $html[] = '<div class="days_container">';
                 }else{
-                $html[] = '<td class="calendar-td '.$day->getClassName().' border">';
+                $html[] = '<td class="calendar_td '.$day->getClassName().' border calendar_layout">';
+                $html[] = '<div class="days_container">';
                 }
                 $html[] = $day->render();
-                $html[] = '<div class="adjust-area">';
+                $html[] = '<div class="adjust_area mt-2">';
                 if($day->everyDay()){
                 if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-                    $html[] = '<p class="d-flex m-0 p-0 text-center">1部<input class="w-50 ml-3" style="height:20px;" name="reserve_day['.$day->everyDay().'][1]" type="text" form="reserveSetting" value="'.$day->onePartFrame($day->everyDay()).'" disabled></p>';
-                    $html[] = '<p class="d-flex m-0 p-0 text-center">2部<input class="w-50 ml-3" style="height:20px;" name="reserve_day['.$day->everyDay().'][2]" type="text" form="reserveSetting" value="'.$day->twoPartFrame($day->everyDay()).'" disabled></p>';
-                    $html[] = '<p class="d-flex m-0 p-0 text-center">3部<input class="w-50 ml-3" style="height:20px;" name="reserve_day['.$day->everyDay().'][3]" type="text" form="reserveSetting" value="'.$day->threePartFrame($day->everyDay()).'" disabled></p>';
+                    $html[] = '<p class="d-flex m-0 p-0 text-center">1部<input class="w-50 ml-3" name="reserve_day['.$day->everyDay().'][1]" type="text" form="reserveSetting" value="'.$day->onePartFrame($day->everyDay()).'" disabled></p>';
+                    $html[] = '<p class="d-flex m-0 p-0 text-center">2部<input class="w-50 ml-3" name="reserve_day['.$day->everyDay().'][2]" type="text" form="reserveSetting" value="'.$day->twoPartFrame($day->everyDay()).'" disabled></p>';
+                    $html[] = '<p class="d-flex m-0 p-0 text-center">3部<input class="w-50 ml-3" name="reserve_day['.$day->everyDay().'][3]" type="text" form="reserveSetting" value="'.$day->threePartFrame($day->everyDay()).'" disabled></p>';
                 }else{
-                    $html[] = '<p class="d-flex m-0 p-0 text-center">1部<input class="w-50 ml-3" style="height:20px;" name="reserve_day['.$day->everyDay().'][1]" type="text" form="reserveSetting" value="'.$day->onePartFrame($day->everyDay()).'"></p>';
-                    $html[] = '<p class="d-flex m-0 p-0 text-center">2部<input class="w-50 ml-3" style="height:20px;" name="reserve_day['.$day->everyDay().'][2]" type="text" form="reserveSetting" value="'.$day->twoPartFrame($day->everyDay()).'"></p>';
-                    $html[] = '<p class="d-flex m-0 p-0">3部<input class="w-50 ml-3" style="height:20px;" name="reserve_day['.$day->everyDay().'][3]" type="text" form="reserveSetting" value="'.$day->threePartFrame($day->everyDay()).'"></p>';
+                    $html[] = '<p class="d-flex m-0 p-0 text-center">1部<input class="w-50 ml-3" name="reserve_day['.$day->everyDay().'][1]" type="text" form="reserveSetting" value="'.$day->onePartFrame($day->everyDay()).'"></p>';
+                    $html[] = '<p class="d-flex m-0 p-0 text-center">2部<input class="w-50 ml-3" name="reserve_day['.$day->everyDay().'][2]" type="text" form="reserveSetting" value="'.$day->twoPartFrame($day->everyDay()).'"></p>';
+                    $html[] = '<p class="d-flex m-0 p-0 text-center">3部<input class="w-50 ml-3" name="reserve_day['.$day->everyDay().'][3]" type="text" form="reserveSetting" value="'.$day->threePartFrame($day->everyDay()).'"></p>';
                 }
                 }
                 $html[] = '</div>';
