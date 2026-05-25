@@ -151,7 +151,7 @@ class PostsController extends Controller
     public function subCategoryCreate(Request $request){
         $request->validate([
             'sub_category_name' => ['required','max:100','string','unique:sub_categories,sub_category'],
-            'main_category_id' => ['required','exists:sub_categories,main_category_id'],
+            'main_category_id' => ['required','exists:main_categories,id'],
             ],[
             'sub_category_name.required' => 'サブカテゴリーは必ず入力してください。',
             'sub_category_name.max' => 'サブカテゴリーは100文字以内で入力してください。',
