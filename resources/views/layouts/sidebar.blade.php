@@ -33,6 +33,10 @@
                         <img src="/image/school-reservation.png" alt="スクール予約 アイコン" class="icon_layout">
                         <a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a>
                     </div>
+                    @php
+                        $role = Auth::user()->role;
+                    @endphp
+                    @if(in_array($role, [1, 2, 3]))
                     <div>
                         <img src="/image/school-reservation-confirmation.png" alt="スクール予約確認 アイコン" class="icon_layout">
                         <a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}?role={{ Auth::user() -> role }}">スクール予約確認</a>
@@ -41,6 +45,7 @@
                         <img src="/image/school-quota-registration.png" alt="スクール枠登録 アイコン" class="icon_layout">
                         <a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}?role={{ Auth::user() -> role }}">スクール枠登録</a>
                     </div>
+                    @endif
                     <div>
                         <img src="/image/bulletin-board.png" alt="掲示板 アイコン" class="icon_layout">
                         <a href="{{ route('post.show') }}">掲示板</a>
