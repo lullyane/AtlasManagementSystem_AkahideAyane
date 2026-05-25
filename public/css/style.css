@@ -569,3 +569,8 @@ div span.bold {
     border: none;
     color: #03AAD2;
 }
+
+.course_register,
+.search_conditions_wrapper {
+    cursor: pointer;
+}

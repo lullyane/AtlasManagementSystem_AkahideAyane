@@ -16,7 +16,9 @@ use Auth;
 class PostsController extends Controller
 {
     public function show(Request $request){
-        $posts = Post::with('user', 'postComments')->get();
+        $posts = Post::with('user', 'postComments')
+            ->orderBy('created_at', 'desc')
+            ->get();
         $categories = MainCategory::get();
         $like = new Like;
         $post_comment = new Post;
@@ -33,24 +35,24 @@ class PostsController extends Controller
                     return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
             }
             $posts = Post::with('user', 'postComments')
-            ->where('post_title', 'like', "%$keyword%")
-            ->orWhere('post', 'like', "%$keyword%")
-            ->get();
+                ->where('post_title', 'like', "%$keyword%")
+                ->orWhere('post', 'like', "%$keyword%")
+                ->get();
             return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
         }else if($request->category_word){
             $subCategoryName = $request->category_word;
             $posts = Post::with('user', 'postComments')
-            ->whereHas('subCategories', function($q) use ($subCategoryName){
+                ->whereHas('subCategories', function($q) use ($subCategoryName){
                 $q->where('sub_category', $subCategoryName);
             })
             ->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
-            ->whereIn('id', $likes)->get();
+                ->whereIn('id', $likes)->get();
         }else if($request->my_posts){
             $posts = Post::with('user', 'postComments')
-            ->where('user_id', Auth::id())->get();
+                ->where('user_id', Auth::id())->get();
         }
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
     }

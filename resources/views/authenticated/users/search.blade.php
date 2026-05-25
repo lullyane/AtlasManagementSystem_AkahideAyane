@@ -76,7 +76,7 @@
             </div>
             <div class="w-100 h-auto mb-4">
                 <div class="search_conditions_wrapper d-flex justify-content-between">
-                    <p class="m-0"><span>検索条件の追加</span></p>
+                    <span class="m-0">検索条件の追加</span>
                     <div class="search_conditions chevron pt-1 mr-2">
                         <span></span>
                         <span></span>

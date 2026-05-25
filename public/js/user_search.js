@@ -10,7 +10,7 @@ $(function () {
     $('.search_conditions_wrapper').click(function () {
         const chevron = $(this).find('.chevron');
         chevron.toggleClass('active');
-        $('.subject_inner').toggleClass('active');
+        $('.search_conditions_inner').slideToggle();
     });
 
     $('.course_register').click(function () {
