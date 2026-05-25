@@ -2,6 +2,7 @@
 .Whoops.container {
     z-index: 5999999;
 }
+
 div.phpdebugbar,
 div.phpdebugbar-openhandler {
     --color-red-vivid: #eb4432;
@@ -38,7 +39,7 @@ div.phpdebugbar-openhandler {
     cursor: default;
 }
 
-div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > a,
+div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions>a,
 div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions button {
     display: inline-block;
     cursor: pointer;
@@ -52,23 +53,23 @@ div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions button {
     font-size: 13px;
 }
 
-div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > form {
+div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions>form {
     margin: 15px 0px 5px;
     text-transform: uppercase;
     font-size: 13px;
     font-weight: bold;
 }
 
-div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > form br {
+div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions>form br {
     display: none;
 }
 
-div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > form > b {
+div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions>form>b {
     display: none;
 }
 
-div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > form input,
-div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > form select {
+div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions>form input,
+div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions>form select {
     margin: 0px 10px 10px 2px;
     border: 1px solid #aaa;
     border-radius: 3px;
@@ -77,13 +78,14 @@ div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > form select {
 }
 
 @media (max-width: 720px) {
-    div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > form select + br,
-    div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > form input[name="uri"] + br {
+
+    div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions>form select+br,
+    div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions>form input[name="uri"]+br {
         display: block;
     }
 }
 
-div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions > form select {
+div.phpdebugbar-openhandler .phpdebugbar-openhandler-actions>form select {
     padding: 2px 5px 1px;
 }
 
@@ -111,7 +113,7 @@ div.phpdebugbar-openhandler table {
 
 div.phpdebugbar-openhandler table td,
 div.phpdebugbar-openhandler table th {
-    width: auto!important;
+    width: auto;
     text-align: left;
     border: 0px solid #bbb;
     padding: 2px 8px;
@@ -130,22 +132,37 @@ div.phpdebugbar-openhandler table tr:nth-child(2n) {
     background-color: #efefef;
 }
 
-div.phpdebugbar-openhandler table th:nth-child(1), div.phpdebugbar-openhandler table td:nth-child(1), /* Date */
-div.phpdebugbar-openhandler table th:nth-child(2), div.phpdebugbar-openhandler table td:nth-child(2), /* Method */
-div.phpdebugbar-openhandler table th:nth-child(4), div.phpdebugbar-openhandler table td:nth-child(4), /* IP */
-div.phpdebugbar-openhandler table th:nth-child(5), div.phpdebugbar-openhandler table td:nth-child(5) { /* Filter */
-    width: 5%!important;
+div.phpdebugbar-openhandler table th:nth-child(1),
+div.phpdebugbar-openhandler table td:nth-child(1),
+/* Date */
+div.phpdebugbar-openhandler table th:nth-child(2),
+div.phpdebugbar-openhandler table td:nth-child(2),
+/* Method */
+div.phpdebugbar-openhandler table th:nth-child(4),
+div.phpdebugbar-openhandler table td:nth-child(4),
+/* IP */
+div.phpdebugbar-openhandler table th:nth-child(5),
+div.phpdebugbar-openhandler table td:nth-child(5) {
+    /* Filter */
+    width: 5%;
     white-space: nowrap;
 }
 
-div.phpdebugbar-openhandler table th:nth-child(2), div.phpdebugbar-openhandler table td:nth-child(2), /* Method */
-div.phpdebugbar-openhandler table th:nth-child(4), div.phpdebugbar-openhandler table td:nth-child(4), /* IP */
-div.phpdebugbar-openhandler table th:nth-child(5), div.phpdebugbar-openhandler table td:nth-child(5) { /* Filter */
+div.phpdebugbar-openhandler table th:nth-child(2),
+div.phpdebugbar-openhandler table td:nth-child(2),
+/* Method */
+div.phpdebugbar-openhandler table th:nth-child(4),
+div.phpdebugbar-openhandler table td:nth-child(4),
+/* IP */
+div.phpdebugbar-openhandler table th:nth-child(5),
+div.phpdebugbar-openhandler table td:nth-child(5) {
+    /* Filter */
     text-align: center;
 }
 
-div.phpdebugbar-openhandler table th:nth-child(3) { /* URL */
-    width: calc(100vw - 100% - 196px)!important;
+div.phpdebugbar-openhandler table th:nth-child(3) {
+    /* URL */
+    width: calc(100vw - 100% - 196px);
 }
 
 div.phpdebugbar-openhandler table td a {
@@ -157,7 +174,7 @@ div.phpdebugbar-openhandler table td a {
 }
 
 div.phpdebugbar-resize-handle {
-    display: block!important;
+    display: block;
     height: 3px;
     margin-top: -3px;
     width: 100%;
@@ -169,7 +186,7 @@ div.phpdebugbar-resize-handle {
 }
 
 .phpdebugbar.phpdebugbar-minimized div.phpdebugbar-resize-handle {
-    cursor: default!important;
+    cursor: default;
 }
 
 div.phpdebugbar-closed,
@@ -177,24 +194,27 @@ div.phpdebugbar-minimized {
     border-top-color: #ddd;
 }
 
-div.phpdebugbar code, div.phpdebugbar pre, div.phpdebugbar samp {
-    background: none !important;
+div.phpdebugbar code,
+div.phpdebugbar pre,
+div.phpdebugbar samp {
+    background: none;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     font-size: 1em;
-    border: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    border: 0;
+    padding: 0;
+    margin: 0;
 }
 
 div.phpdebugbar .hljs {
     padding: 0;
 }
 
-div.phpdebugbar .phpdebugbar-widgets-messages .hljs > code {
+div.phpdebugbar .phpdebugbar-widgets-messages .hljs>code {
     padding-bottom: 3px;
 }
 
-div.phpdebugbar code, div.phpdebugbar pre {
+div.phpdebugbar code,
+div.phpdebugbar pre {
     color: #000;
 }
 
@@ -207,7 +227,7 @@ div.phpdebugbar-widgets-exceptions li.phpdebugbar-widgets-list-item pre.phpdebug
     border-left: 2px solid #d2d2d2;
 }
 
-div.phpdebugbar-widgets-exceptions li.phpdebugbar-widgets-list-item pre.phpdebugbar-widgets-file[style="display: block;"] ~ div {
+div.phpdebugbar-widgets-exceptions li.phpdebugbar-widgets-list-item pre.phpdebugbar-widgets-file~div {
     display: block;
 }
 
@@ -227,23 +247,25 @@ div.phpdebugbar-header {
     text-shadow: 1px 1px #FFF;
 }
 
-div.phpdebugbar-header  span.phpdebugbar-text, div.phpdebugbar-header > div > span > span,  div.phpdebugbar-header > div > span > i{
+div.phpdebugbar-header span.phpdebugbar-text,
+div.phpdebugbar-header>div>span>span,
+div.phpdebugbar-header>div>span>i {
     display: inline-block;
-    transform: translateY(-0.5px) !important;
+    transform: translateY(-0.5px);
 }
 
-div.phpdebugbar-header > div > span > i.phpdebugbar-fa-code{
-    transform: translateY(-1px) !important;
+div.phpdebugbar-header>div>span>i.phpdebugbar-fa-code {
+    transform: translateY(-1px);
 }
 
 a.phpdebugbar-restore-btn {
-    background: url(data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M47.973%2010.859a.74.74%200%200%201%20.027.196v10.303a.735.735%200%200%201-.104.377.763.763%200%200%201-.285.275l-8.902%204.979v9.868a.75.75%200%200%201-.387.652L19.74%2047.9c-.043.023-.09.038-.135.054-.018.006-.034.016-.053.021a.801.801%200%200%201-.396%200c-.021-.006-.04-.017-.061-.024-.043-.015-.087-.029-.128-.051L.39%2037.509a.763.763%200%200%201-.285-.276.736.736%200%200%201-.104-.376V5.947c0-.067.01-.133.027-.196.006-.022.02-.042.027-.063.015-.04.028-.08.05-.117.014-.024.035-.044.053-.067.022-.03.042-.06.068-.087.022-.021.051-.037.077-.056.028-.023.053-.047.085-.065L9.677.1a.793.793%200%200%201%20.774%200l9.29%205.196h.002c.03.019.057.042.085.064.025.019.053.036.075.056.027.027.047.058.07.088.016.023.038.043.052.067.022.038.035.077.05.117.008.021.021.04.027.063a.74.74%200%200%201%20.027.197v19.305l7.742-4.33v-9.869c0-.066.01-.132.027-.195.006-.023.019-.042.027-.064.015-.04.029-.08.05-.116.014-.025.036-.045.052-.067.023-.03.043-.061.07-.087.022-.022.05-.038.075-.057.03-.022.054-.047.085-.065l9.292-5.195a.792.792%200%200%201%20.773%200l9.29%205.195c.033.02.058.043.087.064.025.02.053.036.075.057.027.027.046.058.07.088.017.022.038.042.052.067.022.036.034.077.05.116.009.022.021.041.027.064ZM46.45%2020.923v-8.567l-3.25%201.818-4.492%202.512v8.567l7.743-4.33Zm-9.29%2015.5v-8.574l-4.417%202.45-12.616%206.995v8.654l17.033-9.526ZM1.55%207.247v29.174l17.03%209.525v-8.653l-8.897-4.89-.003-.003-.003-.002c-.03-.017-.056-.041-.084-.062-.024-.018-.052-.033-.073-.054l-.002-.003c-.025-.023-.042-.053-.064-.079-.02-.025-.042-.047-.058-.073v-.003c-.018-.028-.029-.062-.041-.094-.013-.028-.03-.054-.037-.084-.01-.036-.012-.075-.016-.111-.003-.028-.011-.056-.011-.085V11.58L4.8%209.064%201.549%207.248Zm8.516-5.628-7.74%204.328%207.738%204.328%207.74-4.33-7.74-4.326h.002Zm4.026%2027.01%204.49-2.51V7.247L15.33%209.066l-4.492%202.512V30.45l3.253-1.819ZM37.935%206.727l-7.74%204.328%207.74%204.328%207.738-4.329-7.738-4.327Zm-.775%209.959-4.49-2.512-3.252-1.818v8.567l4.49%202.511%203.252%201.82v-8.568ZM19.353%2035.993l11.352-6.295%205.674-3.146-7.733-4.325-8.904%204.98-8.116%204.538%207.727%204.248Z%22%20fill%3D%22%23FF2D20%22/%3E%3C/svg%3E) no-repeat 11px center / 20px 20px !important;
+    background: url(data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M47.973%2010.859a.74.74%200%200%201%20.027.196v10.303a.735.735%200%200%201-.104.377.763.763%200%200%201-.285.275l-8.902%204.979v9.868a.75.75%200%200%201-.387.652L19.74%2047.9c-.043.023-.09.038-.135.054-.018.006-.034.016-.053.021a.801.801%200%200%201-.396%200c-.021-.006-.04-.017-.061-.024-.043-.015-.087-.029-.128-.051L.39%2037.509a.763.763%200%200%201-.285-.276.736.736%200%200%201-.104-.376V5.947c0-.067.01-.133.027-.196.006-.022.02-.042.027-.063.015-.04.028-.08.05-.117.014-.024.035-.044.053-.067.022-.03.042-.06.068-.087.022-.021.051-.037.077-.056.028-.023.053-.047.085-.065L9.677.1a.793.793%200%200%201%20.774%200l9.29%205.196h.002c.03.019.057.042.085.064.025.019.053.036.075.056.027.027.047.058.07.088.016.023.038.043.052.067.022.038.035.077.05.117.008.021.021.04.027.063a.74.74%200%200%201%20.027.197v19.305l7.742-4.33v-9.869c0-.066.01-.132.027-.195.006-.023.019-.042.027-.064.015-.04.029-.08.05-.116.014-.025.036-.045.052-.067.023-.03.043-.061.07-.087.022-.022.05-.038.075-.057.03-.022.054-.047.085-.065l9.292-5.195a.792.792%200%200%201%20.773%200l9.29%205.195c.033.02.058.043.087.064.025.02.053.036.075.057.027.027.046.058.07.088.017.022.038.042.052.067.022.036.034.077.05.116.009.022.021.041.027.064ZM46.45%2020.923v-8.567l-3.25%201.818-4.492%202.512v8.567l7.743-4.33Zm-9.29%2015.5v-8.574l-4.417%202.45-12.616%206.995v8.654l17.033-9.526ZM1.55%207.247v29.174l17.03%209.525v-8.653l-8.897-4.89-.003-.003-.003-.002c-.03-.017-.056-.041-.084-.062-.024-.018-.052-.033-.073-.054l-.002-.003c-.025-.023-.042-.053-.064-.079-.02-.025-.042-.047-.058-.073v-.003c-.018-.028-.029-.062-.041-.094-.013-.028-.03-.054-.037-.084-.01-.036-.012-.075-.016-.111-.003-.028-.011-.056-.011-.085V11.58L4.8%209.064%201.549%207.248Zm8.516-5.628-7.74%204.328%207.738%204.328%207.74-4.33-7.74-4.326h.002Zm4.026%2027.01%204.49-2.51V7.247L15.33%209.066l-4.492%202.512V30.45l3.253-1.819ZM37.935%206.727l-7.74%204.328%207.74%204.328%207.738-4.329-7.738-4.327Zm-.775%209.959-4.49-2.512-3.252-1.818v8.567l4.49%202.511%203.252%201.82v-8.568ZM19.353%2035.993l11.352-6.295%205.674-3.146-7.733-4.325-8.904%204.98-8.116%204.538%207.727%204.248Z%22%20fill%3D%22%23FF2D20%22/%3E%3C/svg%3E) no-repeat 11px center / 20px 20px;
 }
 
 div.phpdebugbar-openhandler .phpdebugbar-openhandler-header {
-    background: url(data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M47.973%2010.859a.74.74%200%200%201%20.027.196v10.303a.735.735%200%200%201-.104.377.763.763%200%200%201-.285.275l-8.902%204.979v9.868a.75.75%200%200%201-.387.652L19.74%2047.9c-.043.023-.09.038-.135.054-.018.006-.034.016-.053.021a.801.801%200%200%201-.396%200c-.021-.006-.04-.017-.061-.024-.043-.015-.087-.029-.128-.051L.39%2037.509a.763.763%200%200%201-.285-.276.736.736%200%200%201-.104-.376V5.947c0-.067.01-.133.027-.196.006-.022.02-.042.027-.063.015-.04.028-.08.05-.117.014-.024.035-.044.053-.067.022-.03.042-.06.068-.087.022-.021.051-.037.077-.056.028-.023.053-.047.085-.065L9.677.1a.793.793%200%200%201%20.774%200l9.29%205.196h.002c.03.019.057.042.085.064.025.019.053.036.075.056.027.027.047.058.07.088.016.023.038.043.052.067.022.038.035.077.05.117.008.021.021.04.027.063a.74.74%200%200%201%20.027.197v19.305l7.742-4.33v-9.869c0-.066.01-.132.027-.195.006-.023.019-.042.027-.064.015-.04.029-.08.05-.116.014-.025.036-.045.052-.067.023-.03.043-.061.07-.087.022-.022.05-.038.075-.057.03-.022.054-.047.085-.065l9.292-5.195a.792.792%200%200%201%20.773%200l9.29%205.195c.033.02.058.043.087.064.025.02.053.036.075.057.027.027.046.058.07.088.017.022.038.042.052.067.022.036.034.077.05.116.009.022.021.041.027.064ZM46.45%2020.923v-8.567l-3.25%201.818-4.492%202.512v8.567l7.743-4.33Zm-9.29%2015.5v-8.574l-4.417%202.45-12.616%206.995v8.654l17.033-9.526ZM1.55%207.247v29.174l17.03%209.525v-8.653l-8.897-4.89-.003-.003-.003-.002c-.03-.017-.056-.041-.084-.062-.024-.018-.052-.033-.073-.054l-.002-.003c-.025-.023-.042-.053-.064-.079-.02-.025-.042-.047-.058-.073v-.003c-.018-.028-.029-.062-.041-.094-.013-.028-.03-.054-.037-.084-.01-.036-.012-.075-.016-.111-.003-.028-.011-.056-.011-.085V11.58L4.8%209.064%201.549%207.248Zm8.516-5.628-7.74%204.328%207.738%204.328%207.74-4.33-7.74-4.326h.002Zm4.026%2027.01%204.49-2.51V7.247L15.33%209.066l-4.492%202.512V30.45l3.253-1.819ZM37.935%206.727l-7.74%204.328%207.74%204.328%207.738-4.329-7.738-4.327Zm-.775%209.959-4.49-2.512-3.252-1.818v8.567l4.49%202.511%203.252%201.82v-8.568ZM19.353%2035.993l11.352-6.295%205.674-3.146-7.733-4.325-8.904%204.98-8.116%204.538%207.727%204.248Z%22%20fill%3D%22%23FF2D20%22/%3E%3C/svg%3E) no-repeat 11px center / 20px 20px !important;
+    background: url(data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2048%2048%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M47.973%2010.859a.74.74%200%200%201%20.027.196v10.303a.735.735%200%200%201-.104.377.763.763%200%200%201-.285.275l-8.902%204.979v9.868a.75.75%200%200%201-.387.652L19.74%2047.9c-.043.023-.09.038-.135.054-.018.006-.034.016-.053.021a.801.801%200%200%201-.396%200c-.021-.006-.04-.017-.061-.024-.043-.015-.087-.029-.128-.051L.39%2037.509a.763.763%200%200%201-.285-.276.736.736%200%200%201-.104-.376V5.947c0-.067.01-.133.027-.196.006-.022.02-.042.027-.063.015-.04.028-.08.05-.117.014-.024.035-.044.053-.067.022-.03.042-.06.068-.087.022-.021.051-.037.077-.056.028-.023.053-.047.085-.065L9.677.1a.793.793%200%200%201%20.774%200l9.29%205.196h.002c.03.019.057.042.085.064.025.019.053.036.075.056.027.027.047.058.07.088.016.023.038.043.052.067.022.038.035.077.05.117.008.021.021.04.027.063a.74.74%200%200%201%20.027.197v19.305l7.742-4.33v-9.869c0-.066.01-.132.027-.195.006-.023.019-.042.027-.064.015-.04.029-.08.05-.116.014-.025.036-.045.052-.067.023-.03.043-.061.07-.087.022-.022.05-.038.075-.057.03-.022.054-.047.085-.065l9.292-5.195a.792.792%200%200%201%20.773%200l9.29%205.195c.033.02.058.043.087.064.025.02.053.036.075.057.027.027.046.058.07.088.017.022.038.042.052.067.022.036.034.077.05.116.009.022.021.041.027.064ZM46.45%2020.923v-8.567l-3.25%201.818-4.492%202.512v8.567l7.743-4.33Zm-9.29%2015.5v-8.574l-4.417%202.45-12.616%206.995v8.654l17.033-9.526ZM1.55%207.247v29.174l17.03%209.525v-8.653l-8.897-4.89-.003-.003-.003-.002c-.03-.017-.056-.041-.084-.062-.024-.018-.052-.033-.073-.054l-.002-.003c-.025-.023-.042-.053-.064-.079-.02-.025-.042-.047-.058-.073v-.003c-.018-.028-.029-.062-.041-.094-.013-.028-.03-.054-.037-.084-.01-.036-.012-.075-.016-.111-.003-.028-.011-.056-.011-.085V11.58L4.8%209.064%201.549%207.248Zm8.516-5.628-7.74%204.328%207.738%204.328%207.74-4.33-7.74-4.326h.002Zm4.026%2027.01%204.49-2.51V7.247L15.33%209.066l-4.492%202.512V30.45l3.253-1.819ZM37.935%206.727l-7.74%204.328%207.74%204.328%207.738-4.329-7.738-4.327Zm-.775%209.959-4.49-2.512-3.252-1.818v8.567l4.49%202.511%203.252%201.82v-8.568ZM19.353%2035.993l11.352-6.295%205.674-3.146-7.733-4.325-8.904%204.98-8.116%204.538%207.727%204.248Z%22%20fill%3D%22%23FF2D20%22/%3E%3C/svg%3E) no-repeat 11px center / 20px 20px;
     padding: 4px 4px 6px 38px;
-    margin: 0px !important;
+    margin: 0px;
 }
 
 div.phpdebugbar-openhandler .phpdebugbar-openhandler-header a {
@@ -258,7 +280,7 @@ div.phpdebugbar-openhandler-header {
 }
 
 a.phpdebugbar-restore-btn {
-    border-right-color: #ddd!important;
+    border-right-color: #ddd;
     height: 20px;
     width: 24px;
     background-position: center;
@@ -270,7 +292,7 @@ a.phpdebugbar-restore-btn {
     border-right: none;
 }
 
-div.phpdebugbar-header > div > * {
+div.phpdebugbar-header>div>* {
     padding: 5px 8px;
     font-size: 13px;
     height: 20px;
@@ -329,13 +351,13 @@ dl.phpdebugbar-widgets-kvlist dd {
 }
 
 ul.phpdebugbar-widgets-timeline li .phpdebugbar-widgets-measure {
-    margin: 0 6px !important;
+    margin: 0 6px;
     height: 28px;
     line-height: 28px;
     border: none;
 }
 
-ul.phpdebugbar-widgets-timeline li > .phpdebugbar-widgets-measure {
+ul.phpdebugbar-widgets-timeline li>.phpdebugbar-widgets-measure {
     height: 20px;
 }
 
@@ -362,11 +384,11 @@ ul.phpdebugbar-widgets-timeline li .phpdebugbar-widgets-value span.phpdebugbar-w
 
 ul.phpdebugbar-widgets-timeline table.phpdebugbar-widgets-params {
     font-size: 11px;
-    margin-top: 20px !important;
+    margin-top: 20px;
 }
 
 ul.phpdebugbar-widgets-timeline table.phpdebugbar-widgets-params td {
-    border-left: none ;
+    border-left: none;
     border-right: none;
 }
 
@@ -385,7 +407,8 @@ div.phpdebugbar-widgets-messages div.phpdebugbar-widgets-toolbar {
     border-radius: 5px 5px 0px 0px;
 }
 
-div.phpdebugbar-widgets-messages div.phpdebugbar-widgets-toolbar a.phpdebugbar-widgets-filter, div.phpdebugbar-widgets-messages div.phpdebugbar-widgets-toolbar a.phpdebugbar-widgets-filter.phpdebugbar-widgets-excluded {
+div.phpdebugbar-widgets-messages div.phpdebugbar-widgets-toolbar a.phpdebugbar-widgets-filter,
+div.phpdebugbar-widgets-messages div.phpdebugbar-widgets-toolbar a.phpdebugbar-widgets-filter.phpdebugbar-widgets-excluded {
     right: 3px;
 }
 
@@ -489,15 +512,19 @@ a.phpdebugbar-open-btn:hover {
     /* transition: background-color .25s linear 0s, color .25s linear 0s; */
 }
 
-a.phpdebugbar-close-btn, a.phpdebugbar-open-btn, a.phpdebugbar-minimize-btn , a.phpdebugbar-maximize-btn, a.phpdebugbar-tab.phpdebugbar-tab-history {
-  min-width: 14px;
-  height: 20px;
+a.phpdebugbar-close-btn,
+a.phpdebugbar-open-btn,
+a.phpdebugbar-minimize-btn,
+a.phpdebugbar-maximize-btn,
+a.phpdebugbar-tab.phpdebugbar-tab-history {
+    min-width: 14px;
+    height: 20px;
 }
 
 a.phpdebugbar-tab.phpdebugbar-active {
     background: var(--color-red-vivid);
     background-image: none;
-    color: #fff !important;
+    color: #fff;
     text-shadow: 1px 1px #bf3039;
 }
 
@@ -548,7 +575,7 @@ div.phpdebugbar-mini-design a.phpdebugbar-tab:hover span.phpdebugbar-text {
     right: auto;
 }
 
-.phpdebugbar-widgets-toolbar > .fa {
+.phpdebugbar-widgets-toolbar>.fa {
     width: 25px;
     font-size: 15px;
     color: #555;
@@ -636,11 +663,11 @@ ul.phpdebugbar-widgets-list li.phpdebugbar-widgets-list-item table.phpdebugbar-w
 
 div.phpdebugbar-widgets-templates table.phpdebugbar-widgets-params th,
 div.phpdebugbar-widgets-templates table.phpdebugbar-widgets-params td {
-    padding: 1px 10px!important;
+    padding: 1px 10px;
 }
 
 div.phpdebugbar-widgets-templates table.phpdebugbar-widgets-params th {
-    padding: 2px 10px!important;
+    padding: 2px 10px;
     background-color: #efefef;
 }
 
@@ -666,7 +693,7 @@ div.phpdebugbar-widgets-messages li.phpdebugbar-widgets-list-item span.phpdebugb
     font-family: PhpDebugbarFontAwesome;
     content: "\f005";
     color: #333;
-    font-size: 15px !important;
+    font-size: 15px;
     margin-right: 8px;
     float: left;
 }
@@ -704,26 +731,26 @@ div.phpdebugbar-widgets-messages li.phpdebugbar-widgets-list-item span.phpdebugb
 }
 
 div.phpdebugbar-widgets-messages li.phpdebugbar-widgets-list-item pre.sf-dump {
-    display: inline-block !important;
+    display: inline-block;
     position: relative;
     top: -1px;
 }
 
 div.phpdebugbar-panel div.phpdebugbar-widgets-status {
-    padding: 9px 10px !important;
+    padding: 9px 10px;
     width: calc(100% - 20px);
-    margin-top: 0px !important;
-    line-height: 11px!important;
-    font-weight: bold!important;
-    background: #f5f5f5!important;
-    border-bottom: 1px solid #cecece!important;
+    margin-top: 0px;
+    line-height: 11px;
+    font-weight: bold;
+    background: #f5f5f5;
+    border-bottom: 1px solid #cecece;
 }
 
-div.phpdebugbar-panel div.phpdebugbar-widgets-status > * {
-    color: #383838!important;
+div.phpdebugbar-panel div.phpdebugbar-widgets-status>* {
+    color: #383838;
 }
 
-div.phpdebugbar-panel div.phpdebugbar-widgets-status > span:first-child:before {
+div.phpdebugbar-panel div.phpdebugbar-widgets-status>span:first-child:before {
     font-family: PhpDebugbarFontAwesome;
     content: "\f05a";
     color: #737373;
@@ -754,7 +781,7 @@ div.phpdebugbar-widgets-sqlqueries table.phpdebugbar-widgets-params td.phpdebugb
 }
 
 div.phpdebugbar-widgets-templates .phpdebugbar-widgets-list-item table.phpdebugbar-widgets-params {
-    width: auto!important;
+    width: auto;
 }
 
 ul.phpdebugbar-widgets-list ul.phpdebugbar-widgets-table-list {
@@ -783,21 +810,21 @@ div.phpdebugbar-mini-design div.phpdebugbar-header-left a.phpdebugbar-tab {
 }
 
 div.phpdebugbar-header-right {
-    display:flex;
+    display: flex;
     flex-direction: row-reverse;
     align-items: center;
     flex-wrap: wrap;
 }
 
-div.phpdebugbar-header-right > * {
+div.phpdebugbar-header-right>* {
     border-right: 1px solid #ddd;
 }
 
-div.phpdebugbar-header-right > *:first-child {
+div.phpdebugbar-header-right>*:first-child {
     border-right: 0;
 }
 
-div.phpdebugbar-header-right a.phpdebugbar-tab.phpdebugbar-tab-history  {
+div.phpdebugbar-header-right a.phpdebugbar-tab.phpdebugbar-tab-history {
     border-left: 0;
 }
 
@@ -806,28 +833,28 @@ div.phpdebugbar-panel[data-collector="__datasets"] {
 }
 
 div.phpdebugbar-panel table {
-    margin: 10px 0px!important;
-    width: 100%!important;
+    margin: 10px 0px;
+    width: 100%;
 }
 
 div.phpdebugbar-panel table .phpdebugbar-widgets-name {
     font-size: 13px;
 }
 
-dl.phpdebugbar-widgets-kvlist > :nth-child(4n-1),
-dl.phpdebugbar-widgets-kvlist > :nth-child(4n) {
+dl.phpdebugbar-widgets-kvlist> :nth-child(4n-1),
+dl.phpdebugbar-widgets-kvlist> :nth-child(4n) {
     background-color: #f5f5f5;
 }
 
 .phpdebugbar pre.sf-dump:after {
-    clear: none!important;
+    clear: none;
 }
 
 div.phpdebugbar-widgets-exceptions li.phpdebugbar-widgets-list-item span.phpdebugbar-widgets-message {
     color: #dd1044;
 }
 
-div.phpdebugbar-widgets-exceptions li.phpdebugbar-widgets-list-item > div {
+div.phpdebugbar-widgets-exceptions li.phpdebugbar-widgets-list-item>div {
     display: none;
 }
 
@@ -839,7 +866,7 @@ div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-row-count:before,
 div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-copy-clipboard:before,
 div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-stmt-id:before,
 div.phpdebugbar-widgets-templates span.phpdebugbar-widgets-param-count:before {
-    margin-right: 6px!important;
+    margin-right: 6px;
 }
 
 .phpdebugbar-widgets-list-item .phpdebugbar-widgets-bg-measure {
@@ -854,18 +881,18 @@ div.phpdebugbar-widgets-templates span.phpdebugbar-widgets-param-count:before {
 
 .phpdebugbar-widgets-bg-measure .phpdebugbar-widgets-value {
     position: absolute;
-    height: 1px !important;
-    opacity: 1 !important;
+    height: 1px;
+    opacity: 1;
     bottom: 0;
-    background: #63abca !important;
+    background: #63abca;
 }
 
-div.phpdebugbar dl.phpdebugbar-widgets-kvlist > :nth-child(4n)::before {
-background-color: #f5f5f5;
+div.phpdebugbar dl.phpdebugbar-widgets-kvlist> :nth-child(4n)::before {
+    background-color: #f5f5f5;
 }
 
 dt.phpdebugbar-widgets-key {
-    padding-left: 10px !important;
+    padding-left: 10px;
 }
 
 dt.phpdebugbar-widgets-key {
@@ -888,7 +915,7 @@ dd.phpdebugbar-widgets-value::before {
     margin-left: -33.33%;
 }
 
-dd.phpdebugbar-widgets-value  pre.sf-dump {
+dd.phpdebugbar-widgets-value pre.sf-dump {
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -912,21 +939,22 @@ pre.phpdebugbar-widgets-code-block ul.phpdebugbar-widgets-numbered-code li {
 }
 
 @media (prefers-color-scheme: dark) {
+
     div.phpdebugbar .phpdebugbar-indicator span.phpdebugbar-tooltip,
     div.phpdebugbar div.phpdebugbar-mini-design a.phpdebugbar-tab:hover span.phpdebugbar-text,
     div.phpdebugbar pre.sf-dump,
     div.phpdebugbar .hljs,
     div.phpdebugbar code.phpdebugbar-widgets-sql span.hljs-operator {
-        color: var(--color-gray-100) !important;
+        color: var(--color-gray-100);
     }
 }
 
 .phpdebugbar-widgets-bg-measure .phpdebugbar-widgets-value {
-    height: 2px !important;
+    height: 2px;
 }
 
 div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-copy-clipboard {
-    margin-left: 8px !important;
+    margin-left: 8px;
 }
 
 div.phpdebugbar-widgets-sqlqueries table.phpdebugbar-widgets-params td.phpdebugbar-widgets-name {
@@ -939,7 +967,7 @@ div.phpdebugbar-widgets-sqlqueries a.phpdebugbar-widgets-connection {
     background: #737373;
     margin-left: 6px;
     border-radius: 4px;
-    color: #fff !important;
+    color: #fff;
 }
 
 div.phpdebugbar-widgets-sqlqueries button.phpdebugbar-widgets-explain-btn {
@@ -953,7 +981,7 @@ div.phpdebugbar-widgets-sqlqueries button.phpdebugbar-widgets-explain-btn {
 }
 
 div.phpdebugbar-widgets-sqlqueries table.phpdebugbar-widgets-explain {
-    margin: 0 !important;
+    margin: 0;
 }
 
 div.phpdebugbar-widgets-sqlqueries table.phpdebugbar-widgets-explain th {
